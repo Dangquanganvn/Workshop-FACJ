@@ -133,4 +133,3 @@ The following cost estimate assumes Free Tier eligibility where applicable and c
 - Provide a scalable foundation for integrating future AWS services such as AI/ML, recommendation systems, analytics, and online payment solutions.
 - Reuse the architecture for other e-commerce or web-based applications, reducing development time and deployment costs.
 - Build a cloud-native infrastructure capable of scaling with increasing user traffic and business growth.
-```
