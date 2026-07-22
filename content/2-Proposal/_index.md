@@ -34,7 +34,7 @@ The solution establishes a solid foundation ready for future feature expansions.
 
 The architecture focuses on structural simplicity in network design while maximizing availability. All backend servers are isolated within Private Subnets, accepting only filtered traffic routed through the ALB. The architecture is detailed below:
 
-![Fashion E-commerce Architecture](/images/2-Proposal/architecture.jpeg)
+![Fashion E-commerce Architecture](/images/2-Proposal/Proposal.png)
 
 #### AWS Services Used
 

@@ -38,7 +38,7 @@ Giải pháp tạo nền tảng vững chắc, sẵn sàng cho việc mở rộn
 
 Kiến trúc tập trung vào sự đơn giản trong thiết kế mạng nhưng tối đa hóa tính sẵn sàng. Toàn bộ máy chủ backend được cách ly trong các Private Subnet, chỉ tiếp nhận lưu lượng đã được lọc qua ALB. Kiến trúc chi tiết được thể hiện bên dưới:
 
-![Fashion E-commerce Architecture](/images/2-Proposal/architecture.jpeg)
+![Fashion E-commerce Architecture](/images/2-Proposal/Proposal.png)
 
 #### Các dịch vụ AWS được sử dụng
 
