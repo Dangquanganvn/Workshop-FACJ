@@ -33,7 +33,7 @@ Giải pháp tạo nền tảng vững chắc, sẵn sàng cho việc mở rộn
 
 Kiến trúc tập trung vào sự tối giản trong hạ tầng mạng nhưng tối đa hóa tính sẵn sàng. Toàn bộ Backend được ẩn mình trong Private Subnet, chỉ tiếp nhận traffic đã qua kiểm duyệt từ ALB.
 
-![Architecture Diagram](/images/2-Proposal/Fashion_Ecommerce_Architecture.png)
+![Architecture Diagram](/images/2-Proposal/Proposal.png)
 
 ### Dịch vụ AWS sử dụng
 

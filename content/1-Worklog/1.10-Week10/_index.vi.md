@@ -29,8 +29,3 @@ Sau khi hoàn thiện Proposal và tiếp tục phát triển giao diện hệ t
 - Cập nhật đầy đủ tiến độ phát triển của dự án.
 - Chuẩn bị nền tảng cho giai đoạn hoàn thiện và triển khai các chức năng còn lại.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Việc rà soát tài liệu giúp đảm bảo nội dung trình bày đầy đủ và chính xác.
-- Kiểm thử thường xuyên giúp phát hiện lỗi sớm và nâng cao chất lượng hệ thống.
-- Quá trình kiểm tra toàn bộ chức năng giúp đánh giá được mức độ hoàn thiện của dự án và xác định các công việc cần ưu tiên trong giai đoạn tiếp theo.

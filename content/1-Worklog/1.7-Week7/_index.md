@@ -29,9 +29,3 @@ After completing the AWS foundation modules, I officially started the project im
 - Completed several basic user interface components.
 - Prepared a solid foundation for implementing additional project features in the following weeks.
 
-### Lessons Learned
-
-- Using a source code repository is essential for version control and effective team collaboration.
-- Building the frontend at the beginning of the project helps define the overall system structure and user experience.
-- Proper preparation of the development environment minimizes issues during project implementation.
-- Regularly updating the repository helps maintain project consistency and supports collaborative development.

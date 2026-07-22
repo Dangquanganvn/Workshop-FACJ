@@ -29,9 +29,3 @@ Sau khi hoàn thành các nội dung nền tảng ở tuần đầu tiên, em ti
 - Hiểu được mục đích sử dụng của Amazon EC2 trong việc triển khai máy chủ trên nền tảng AWS.
 - Chuẩn bị đầy đủ kiến thức để thực hành tạo EC2 Instance trong tuần tiếp theo.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- AWS CLI giúp thao tác và quản lý tài nguyên AWS nhanh chóng hơn so với thực hiện hoàn toàn trên giao diện Web.
-- Việc hoàn thành các bài Lab giúp củng cố kiến thức lý thuyết và nâng cao khả năng thực hành.
-- Amazon EC2 là một trong những dịch vụ cốt lõi của AWS, vì vậy việc nắm vững các khái niệm cơ bản sẽ tạo nền tảng cho các nội dung triển khai hệ thống sau này.
-- Chủ động ghi chép các câu lệnh AWS CLI và các kiến thức quan trọng giúp việc ôn tập và thực hành trở nên hiệu quả hơn.

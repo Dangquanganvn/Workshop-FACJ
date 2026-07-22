@@ -29,9 +29,3 @@ Sau khi đã tìm hiểu và thực hành các nội dung cơ bản của Amazon
 - Thảo luận và thống nhất kế hoạch triển khai dự án với các thành viên trong nhóm.
 - Hoàn thành việc phân chia công việc để chuẩn bị cho giai đoạn phát triển hệ thống.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Bucket Policy là công cụ quan trọng giúp kiểm soát quyền truy cập vào tài nguyên trên Amazon S3.
-- Versioning giúp hạn chế rủi ro mất dữ liệu do ghi đè hoặc xóa nhầm Object.
-- Hoàn thành đầy đủ các bài Lab giúp củng cố kiến thức và nâng cao kỹ năng thực hành trên AWS.
-- Việc thảo luận và phân chia công việc rõ ràng giúp nhóm phối hợp hiệu quả hơn trong quá trình triển khai dự án.

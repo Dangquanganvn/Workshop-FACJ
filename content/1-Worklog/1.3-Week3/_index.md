@@ -29,9 +29,3 @@ After learning the fundamental concepts of Amazon EC2 in the previous week, I be
 - Learned how to monitor and manage EC2 resources using the AWS Management Console.
 - Strengthened practical knowledge of Amazon EC2 and prepared for the next AWS learning modules.
 
-### Lessons Learned
-
-- Hands-on practice with Amazon EC2 provided a deeper understanding of deploying and managing virtual servers on AWS.
-- Managing the EC2 Instance lifecycle is an essential skill for optimizing cloud resources and minimizing unnecessary costs.
-- Practical lab exercises significantly improved my confidence in administering EC2 resources.
-- Recording implementation steps and lab results made future review and project development more efficient.

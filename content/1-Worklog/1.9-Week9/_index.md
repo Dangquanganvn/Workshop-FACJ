@@ -29,9 +29,3 @@ After completing the system architecture, database, and backend implementation, 
 - Understood how Redis improves application performance by reducing server requests.
 - Prepared the project for future Redis integration.
 
-### Lessons Learned
-
-- A well-prepared proposal provides a clear roadmap for project development.
-- Developing the frontend alongside the backend improves development efficiency.
-- Amazon ElastiCache Redis is an effective caching solution for improving response time and reducing backend workload.
-- Learning additional AWS services broadens my understanding of cloud architecture optimization.

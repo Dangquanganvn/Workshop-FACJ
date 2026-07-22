@@ -29,8 +29,3 @@ With most project features completed, I focused on fixing the remaining issues, 
 - Improved system performance through optimization.
 - Completed preparations for the final stage of the internship.
 
-### Lessons Learned
-
-- Thorough testing before deployment significantly reduces production issues.
-- Deploying a real application provided valuable experience in production environments.
-- Final optimization and bug fixing are essential steps before delivering a software product.

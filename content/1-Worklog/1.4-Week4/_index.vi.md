@@ -30,10 +30,3 @@ Sau khi đã thực hành triển khai và quản lý Amazon EC2, em tiếp tụ
 - Kết nối thành công đến EC2 Instance thông qua giao thức SSH.
 - Hoàn thành các bài Lab về Amazon VPC theo đúng tiến độ của chương trình.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Amazon EBS và Snapshot là các thành phần quan trọng giúp đảm bảo dữ liệu của EC2 được lưu trữ và sao lưu an toàn.
-- Elastic IP giúp duy trì địa chỉ IP tĩnh cho các hệ thống cần kết nối ổn định từ bên ngoài.
-- Amazon VPC đóng vai trò nền tảng trong việc xây dựng và quản lý hạ tầng mạng trên AWS.
-- Security Group và SSH là những kỹ năng cần thiết để quản trị và bảo mật máy chủ trên nền tảng đám mây.
-- Việc hoàn thành các bài Lab giúp em hiểu rõ hơn cách triển khai và quản lý hạ tầng AWS trong môi trường thực tế.

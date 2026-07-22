@@ -29,9 +29,3 @@ After completing the fundamental Amazon S3 lessons in the previous week, I focus
 - Participated in project planning discussions with the team.
 - Completed task assignments for the upcoming project implementation phase.
 
-### Lessons Learned
-
-- Bucket Policy is essential for controlling access to Amazon S3 resources.
-- Versioning helps protect data from accidental deletion or overwriting.
-- Completing hands-on labs significantly improved my practical AWS skills.
-- Clear task allocation and team communication are important for successful project execution.

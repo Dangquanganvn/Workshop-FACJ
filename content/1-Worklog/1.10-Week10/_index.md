@@ -29,8 +29,3 @@ After completing the project proposal and continuing the frontend development, I
 - Updated the overall project progress.
 - Prepared for the next stage of project development.
 
-### Lessons Learned
-
-- Reviewing project documentation improves its quality and completeness.
-- Continuous testing helps detect issues early and increases system reliability.
-- Regular feature validation provides a clear understanding of project progress and helps prioritize future development tasks.

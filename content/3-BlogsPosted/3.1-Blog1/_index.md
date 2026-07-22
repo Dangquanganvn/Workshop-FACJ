@@ -7,20 +7,29 @@ pre: " <b> 3.1. </b> "
 ---
 
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# Multi-AZ or Read Replica? I used to get them mixed up too!
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+When I first started learning about Amazon RDS, I used to confuse **Multi-AZ** with **Read Replicas**—a common mix-up for many newcomers to AWS. While both features create database copies, they serve completely different purposes. In this article, I will summarize the key differences to make them easier to remember.
 
 Key points to know:
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+* Multi-AZ
+    * Goal: High Availability (HA).
+    * Synchronous data replication.
+    * Includes a standby database in a different Availability Zone (AZ).
+    * Automatic failover if the primary instance fails.
+    * Does not handle read queries; does not improve performance.
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+* Read Replica
+    * Goal: Read Scaling.
+    * Asynchronous data replication.
+    * Handles SELECT queries to offload the primary instance.
+    * Replication lag may occur.
+    * No automatic failover if the primary instance fails.
+* Quick Summary
+    *  Multi-AZ = System resilience (HA).
+    *  Read Replica = Increased read capacity (Read Scaling).
+    *  In production systems, these two features are often combined to ensure both high availability and improved performance. 
 
 ![Your BlogsPosted picture](/images/3-BlogsPosted/Blog1.png)
 

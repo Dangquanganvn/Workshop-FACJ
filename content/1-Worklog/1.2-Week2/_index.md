@@ -29,9 +29,3 @@ After completing the fundamental AWS concepts in the first week, I continued pra
 - Understood the role of Amazon EC2 in deploying and managing virtual servers on AWS.
 - Built the necessary theoretical foundation for launching and managing EC2 Instances in the following week.
 
-### Lessons Learned
-
-- AWS CLI provides a fast and efficient way to manage AWS resources compared to using only the web-based AWS Management Console.
-- Completing hands-on labs immediately after studying theoretical concepts significantly improves understanding and practical skills.
-- Amazon EC2 is one of the core AWS services, making it essential to understand its basic concepts before performing real-world deployments.
-- Maintaining organized notes on AWS CLI commands and learning materials makes future review and practical exercises more effective.

@@ -29,9 +29,3 @@ Sau khi hoàn thành các nội dung về Amazon EC2 và Amazon VPC, em tiếp t
 - Hiểu được sự khác biệt giữa thao tác trên AWS Management Console và AWS CLI.
 - Hoàn thành đầy đủ các bài Lab về Amazon S3 theo đúng tiến độ của chương trình.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Amazon S3 là dịch vụ lưu trữ quan trọng và được sử dụng rộng rãi trong nhiều hệ thống triển khai trên AWS.
-- AWS CLI giúp quản lý tài nguyên nhanh chóng và thuận tiện hơn khi cần thực hiện các thao tác lặp lại.
-- Việc thực hành trực tiếp trên Amazon S3 giúp em hiểu rõ hơn về cơ chế lưu trữ dữ liệu trên nền tảng đám mây.
-- Hoàn thành các bài Lab và ghi chép các câu lệnh AWS CLI giúp em dễ dàng ôn tập và áp dụng trong các dự án sau này.

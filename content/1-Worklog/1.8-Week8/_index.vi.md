@@ -29,9 +29,3 @@ Sau khi đã bắt đầu triển khai dự án và xây dựng giao diện fron
 - Phát triển được các API cơ bản phục vụ cho hệ thống.
 - Chuẩn bị nền tảng để tiếp tục tích hợp và phát triển các chức năng trong các tuần tiếp theo.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Việc thiết kế kiến trúc hệ thống ngay từ đầu giúp định hướng quá trình phát triển và mở rộng dự án một cách rõ ràng.
-- Thiết kế cơ sở dữ liệu hợp lý giúp việc quản lý và truy xuất dữ liệu hiệu quả hơn.
-- Quá trình triển khai Backend giúp em hiểu rõ hơn về cách xây dựng API và kết nối với cơ sở dữ liệu.
-- Kiểm thử thường xuyên trong quá trình phát triển giúp phát hiện và xử lý lỗi sớm, nâng cao chất lượng hệ thống.

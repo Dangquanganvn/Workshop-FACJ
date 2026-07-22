@@ -30,10 +30,3 @@ During the first week of the AWS First Cloud AI Journey (FCAJ) internship progra
 - Completed all introductory AWS labs according to the training schedule.
 - Prepared the required environment for the next learning modules.
 
-### Lessons Learned
-
-- Gained a clear understanding of the FCAJ learning process and internship workflow.
-- Learned how to create and secure an AWS account using IAM and Virtual MFA.
-- Became familiar with the AWS Management Console and AWS CLI, providing a foundation for managing AWS services.
-- Completing hands-on labs immediately after studying theoretical content helped reinforce knowledge effectively.
-- Keeping detailed notes and lab results made it easier to review concepts and prepare future workshops and project documentation.

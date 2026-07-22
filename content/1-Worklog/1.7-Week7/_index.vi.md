@@ -29,9 +29,3 @@ Sau khi hoàn thành các nội dung học tập và thực hành về các dị
 - Hoàn thiện một số thành phần giao diện cơ bản của hệ thống.
 - Chuẩn bị đầy đủ nền tảng cho giai đoạn phát triển các chức năng ở các tuần tiếp theo.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Repository đóng vai trò quan trọng trong việc quản lý phiên bản và phối hợp làm việc giữa các thành viên trong nhóm.
-- Việc xây dựng giao diện từ sớm giúp định hình cấu trúc và luồng hoạt động của hệ thống.
-- Chuẩn bị môi trường phát triển đầy đủ ngay từ đầu giúp giảm thiểu các vấn đề phát sinh trong quá trình triển khai dự án.
-- Làm việc theo kế hoạch và cập nhật mã nguồn thường xuyên giúp dự án được quản lý hiệu quả hơn.

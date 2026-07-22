@@ -29,8 +29,3 @@ This was the final week of the FCAJ internship program. My primary objective was
 - Prepared the final internship submission.
 - Successfully completed the FCAJ internship program.
 
-### Lessons Learned
-
-- Organizing project documents helped me consolidate the knowledge and experience gained throughout the internship.
-- Writing the internship report improved my documentation, analytical, and technical writing skills.
-- Reviewing all project deliverables ensured consistency, professionalism, and readiness for the final evaluation.

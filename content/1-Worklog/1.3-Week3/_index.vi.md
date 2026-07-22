@@ -29,9 +29,3 @@ Sau khi đã tìm hiểu các kiến thức cơ bản về Amazon EC2 ở tuần
 - Biết cách theo dõi và quản lý tài nguyên EC2 thông qua AWS Management Console.
 - Củng cố kiến thức về Amazon EC2 và chuẩn bị cho các dịch vụ liên quan ở tuần tiếp theo.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Việc thực hành trực tiếp trên Amazon EC2 giúp em hiểu rõ quy trình triển khai và quản lý máy chủ trên nền tảng AWS.
-- Quản lý vòng đời của EC2 Instance là kỹ năng quan trọng nhằm tối ưu tài nguyên và hạn chế phát sinh chi phí.
-- Các bài Lab giúp em làm quen với các thao tác quản trị EC2 trong môi trường thực tế.
-- Chủ động ghi chép các bước thực hiện và kết quả giúp thuận lợi cho việc ôn tập và triển khai dự án sau này.

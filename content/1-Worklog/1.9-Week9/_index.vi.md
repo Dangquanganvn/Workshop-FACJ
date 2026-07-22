@@ -29,9 +29,3 @@ Sau khi hoàn thành kiến trúc hệ thống, cơ sở dữ liệu và Backend
 - Hiểu được vai trò của Redis trong việc lưu trữ dữ liệu tạm thời và giảm tải request đến Server.
 - Chuẩn bị cơ sở để tích hợp Redis vào hệ thống trong các giai đoạn tiếp theo.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Proposal giúp định hướng rõ ràng quá trình phát triển dự án và thống nhất mục tiêu giữa các thành viên.
-- Việc triển khai giao diện song song với Backend giúp rút ngắn thời gian phát triển hệ thống.
-- Amazon ElastiCache Redis là giải pháp caching hiệu quả giúp cải thiện tốc độ phản hồi và giảm tải cho Backend.
-- Việc nghiên cứu các dịch vụ AWS mới giúp em có thêm nhiều lựa chọn để tối ưu kiến trúc hệ thống.

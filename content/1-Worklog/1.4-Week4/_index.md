@@ -30,10 +30,3 @@ After practicing Amazon EC2 deployment and management, I continued learning esse
 - Connected to an EC2 Instance using SSH.
 - Completed all required Amazon VPC laboratory exercises according to the FCAJ learning schedule.
 
-### Lessons Learned
-
-- Amazon EBS and Snapshots are essential services for persistent storage and backup on AWS.
-- Elastic IP provides a stable public IP address for long-running cloud applications.
-- Amazon VPC forms the foundation of networking and security within AWS cloud environments.
-- Configuring Security Groups and using SSH are fundamental skills for securely managing cloud servers.
-- Hands-on laboratory exercises significantly improved my understanding of AWS infrastructure and networking services.

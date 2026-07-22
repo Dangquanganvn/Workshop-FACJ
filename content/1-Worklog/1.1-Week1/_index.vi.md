@@ -30,10 +30,3 @@ Trong tuần đầu tiên tham gia chương trình thực tập AWS First Cloud 
 - Hoàn thành các bài Lab cơ bản theo đúng kế hoạch của tuần đầu tiên.
 - Chuẩn bị đầy đủ môi trường để tiếp tục học các dịch vụ AWS trong những tuần tiếp theo.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Hiểu được quy trình tham gia chương trình FCAJ và phương thức học tập trong suốt kỳ thực tập.
-- Biết cách tạo và cấu hình tài khoản AWS an toàn thông qua IAM và Virtual MFA.
-- Làm quen với AWS Management Console và AWS CLI, tạo nền tảng cho việc quản trị các dịch vụ AWS.
-- Việc hoàn thành các bài Lab ngay sau mỗi nội dung lý thuyết giúp củng cố kiến thức và nâng cao khả năng thực hành.
-- Chủ động ghi chép và lưu lại kết quả thực hành giúp thuận lợi cho việc ôn tập và triển khai các bài Workshop sau này.

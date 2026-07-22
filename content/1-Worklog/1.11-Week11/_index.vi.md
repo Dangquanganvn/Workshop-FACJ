@@ -29,8 +29,3 @@ Sau khi hoàn thành phần lớn các chức năng của dự án, trong tuần
 - Cải thiện hiệu năng và tối ưu một số thành phần của hệ thống.
 - Chuẩn bị đầy đủ cho giai đoạn tổng kết dự án.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Việc kiểm thử kỹ lưỡng trước khi triển khai giúp hạn chế các lỗi phát sinh trên môi trường thực tế.
-- Quá trình Deploy giúp em hiểu rõ hơn về việc đưa một ứng dụng từ môi trường phát triển lên môi trường vận hành.
-- Việc tối ưu và sửa lỗi sau khi hoàn thành chức năng là bước quan trọng để nâng cao chất lượng sản phẩm trước khi bàn giao.

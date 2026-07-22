@@ -36,7 +36,7 @@ The proposed architecture provides a reliable foundation for future expansion wh
 
 The architecture emphasizes simplicity in networking while maximizing availability. All backend services are deployed inside **Private Subnets** and only receive traffic that has been validated by the **Application Load Balancer (ALB)**.
 
-![Architecture Diagram](/images/2-Proposal/Fashion_Ecommerce_Architecture.png)
+![Architecture Diagram](/images/2-Proposal/Proposal.png)
 
 ### AWS Services
 

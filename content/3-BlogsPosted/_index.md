@@ -8,13 +8,8 @@ pre: " <b> 3. </b> "
 
 
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
+## Blog 1 - Multi-AZ vs. Read Replica: I Used to Confuse Them Too!
+When I first started learning about Amazon RDS, I thought that enabling Multi-AZ would not only provide high availability but also improve database performance by using a replica in another Availability Zone to handle additional traffic. However, after studying the topic more carefully while preparing for my internship project, I realized that this is actually a very common misconception.
 
-###  [Blog 1 - SESSION POLICIES IN AMAZON EKS POD IDENTITY](3.1-Blog1/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+In this blog post, I'll explain the differences between Multi-AZ and Read Replica using a simple movie ticket booking system as an example. If you're currently learning AWS or preparing for certifications such as AWS Certified Cloud Practitioner or AWS Certified Solutions Architect – Associate, I hope this article helps you avoid the same misunderstanding that I once had.
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
-
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.

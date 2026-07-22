@@ -29,9 +29,3 @@ After completing the Amazon EC2 and Amazon VPC modules, I continued learning Ama
 - Understood the differences between using AWS Management Console and AWS CLI.
 - Successfully completed all Amazon S3 laboratory exercises according to the FCAJ training schedule.
 
-### Lessons Learned
-
-- Amazon S3 is a core AWS storage service widely used in cloud-based applications.
-- AWS CLI provides a faster and more efficient way to manage AWS resources through command-line operations.
-- Hands-on practice with Amazon S3 helped me better understand object storage concepts in cloud computing.
-- Keeping records of AWS CLI commands and laboratory exercises will support future learning and project implementation.

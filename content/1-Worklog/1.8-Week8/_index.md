@@ -29,9 +29,3 @@ After starting the project implementation and developing the frontend in the pre
 - Developed the basic APIs required by the system.
 - Established a solid technical foundation for the next development phase.
 
-### Lessons Learned
-
-- A well-designed system architecture provides a clear roadmap for project development and scalability.
-- Proper database design improves data organization and application performance.
-- Backend implementation strengthened my understanding of REST API development and database integration.
-- Continuous testing during development helps detect issues early and improves software quality.

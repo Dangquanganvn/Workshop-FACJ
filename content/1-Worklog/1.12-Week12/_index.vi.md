@@ -29,8 +29,3 @@ pre: " <b> 1.12. </b> "
 - Chuẩn bị đầy đủ hồ sơ phục vụ cho việc tổng kết chương trình.
 - Hoàn thành chương trình thực tập theo đúng kế hoạch.
 
-### Kiến thức và kinh nghiệm rút ra:
-
-- Việc tổng hợp tài liệu giúp em hệ thống lại toàn bộ kiến thức và quá trình thực hiện dự án.
-- Quá trình hoàn thiện báo cáo giúp nâng cao kỹ năng trình bày, tổng hợp và phân tích kết quả thực hiện.
-- Việc rà soát toàn bộ Worklog, Proposal và Workshop giúp đảm bảo tính chính xác, nhất quán và chuyên nghiệp của các tài liệu trước khi kết thúc kỳ thực tập.

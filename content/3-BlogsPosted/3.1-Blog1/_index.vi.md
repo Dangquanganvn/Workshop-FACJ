@@ -7,22 +7,31 @@ pre: " <b> 3.1. </b> "
 ---
 
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# Multi-AZ hay Read Replica? Mình cũng từng nhầm!
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Khi mới học về Amazon RDS, mình từng nhầm lẫn giữa Multi-AZ và Read Replica, và mình nghĩ đây cũng là điều khá nhiều bạn mới học AWS gặp phải. Hai tính năng này đều tạo thêm bản sao của database nhưng mục đích sử dụng hoàn toàn khác nhau. Trong bài viết này, mình sẽ tóm tắt những điểm khác biệt quan trọng để mọi người dễ ghi nhớ.
 
 Các điểm chính cần nắm:
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+* Multi-AZ
+  * Mục tiêu : High Availability (HA).
+  * Đồng bộ dữ liệu Synchronous.
+  * Có Standby DB ở AZ khác.
+  * Tự động Failover khi Primary gặp sự cố.
+  * Không xử lý truy vấn đọc, không giúp tăng hiệu năng. 
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+* Read Replica
+  * Mục tiêu : Read Scaling.
+  * Động bộ dữ liệu Asynchronous.
+  * Xử lý các truy vấn SELECT để giảm tải cho Primary/
+  * Có thể xảy ra độ trễ dữ liệu (Replication Lag).
+  * Không tự động Failover khi Primary gặp sự cố. 
 
-![Your BlogsPosted picture](/images/3-BlogsPosted/Blog1.png)
+* Kết luận nhanh
+  *  Multi-AZ = Chống sập hệ thống (HA).
+  *  Read Replica = Tăng khả năng đọc (Read Scaling).
+  *  Trong các hệ thống production, hai tính năng này thường được kết hợp với nhau để vừa đảm bảo tính sẵn sàng vừa cải thiện hiệu năng.
+![Ảnh Blog](/images/3-BlogsPosted/Blog1.png)
 
-[...Link...](https://www.facebook.com/groups/660548818043427/user/100022580752820)
+[Link Blog](https://www.facebook.com/groups/660548818043427/user/100022580752820)
 
