@@ -52,7 +52,3 @@ Workshop này sử dụng StrongSwan VPN chạy trên EC2 instance để mô ph�
 ![add route](/images/5-Workshop/5.4-S3-onprem/add-route.png)
 
 6. Click Save changes
-
-
-
-

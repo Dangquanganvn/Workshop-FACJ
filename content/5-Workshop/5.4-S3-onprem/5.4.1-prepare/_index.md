@@ -52,6 +52,3 @@ This workshop uses a strongSwan VPN running on an EC2 instance to simulate conne
 ![add route](/images/5-Workshop/5.4-S3-onprem/add-route.png)
 
 6. Click Save changes
-
-
-

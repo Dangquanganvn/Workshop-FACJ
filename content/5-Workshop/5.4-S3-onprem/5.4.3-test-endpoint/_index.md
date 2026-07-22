@@ -53,7 +53,3 @@ Now the file has been added to your S3 bucket. Let check your S3 bucket in the n
 3. Click the name of your bucket and you will see testfile2.xyz has been added to your bucket
 
 ![check bucket](/images/5-Workshop/5.4-S3-onprem/check-bucket.png)
-
-
-
-
