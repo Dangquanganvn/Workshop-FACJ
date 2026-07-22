@@ -6,28 +6,25 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai Hạ tầng AWS Thủ công cho Nền tảng E-commerce Thời trang
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Trong phần workshop này, bạn sẽ học cách tự tay xây dựng và cấu hình một hạ tầng mạng và tính toán Multi-AZ sẵn sàng cho môi trường production đối với hệ thống **Fashion E-commerce Platform** tại **Region Singapore (ap-southeast-1)**.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Thông qua việc tự thực hiện từng bước thủ công, bạn sẽ nắm vững các thành phần lõi của AWS:
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+- **Mạng & Bảo mật (Networking & Security)** - Khởi tạo VPC tùy chỉnh, 8 subnet đa phân lớp trên 2 Availability Zones, Internet Gateway, Route Tables và VPC Endpoints nhằm bảo mật đường truyền nội bộ.
+- **Tầng Dữ liệu & Cache (Data & Caching Layer)** - Thiết lập Amazon RDS Multi-AZ cho cơ sở dữ liệu quan hệ và Amazon ElastiCache (Redis) để tối ưu hiệu năng xử lý phiên người dùng.
+- **Tầng Tính toán & Cân bằng tải (Compute & Load Balancing)** - Cấu hình Application Load Balancer (ALB), Target Groups, EC2 Launch Templates và Auto Scaling Groups (ASG) để đáp ứng lượng truy cập mua sắm lớn.
+- **Frontend & Lưu trữ (Frontend & Storage)** - Đưa giao diện tĩnh lên dịch vụ Amazon S3.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Tổng quan Workshop](5.1-workshop-overview)
+2. [Các bước chuẩn bị](5.2-prerequisite)
+3. [Mạng & Bảo mật](5.3-networking-security)
+4. [Thiết lập Tầng Dữ liệu](5.4-data-layer)
+5. [Tính toán & Cân bằng tải](5.5-compute-load-balancing)
+6. [Triển khai Frontend](5.6-frontend-deployment)
+7. [Tối ưu chi phí & Giám sát](5.7-cost-monitoring)

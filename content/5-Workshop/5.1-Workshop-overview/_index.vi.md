@@ -1,22 +1,21 @@
 ---
-title : "Giới thiệu"
-date : 2024-01-01 
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Tổng quan Workshop"
+date: 2024-01-01
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về VPC Endpoint trong kiến trúc E-commerce
-Trong kiến trúc Fashion E-commerce, VPC Endpoint đóng vai trò là "cầu nối nội bộ" an toàn. Thay vì phụ thuộc vào NAT Gateway vốn tốn kém và yêu cầu cấu hình routing phức tạp cho luồng đi ra ngoài, VPC Endpoint cho phép các tài nguyên trong Private Subnet (như EC2 App Servers) giao tiếp trực tiếp với các dịch vụ AWS (S3, CodeDeploy) thông qua mạng nội bộ của AWS.
+#### Giới thiệu về VPC Endpoint trong kiến trúc Fashion E-commerce
 
-+ **Gateway Endpoint:** Được sử dụng cho Amazon S3, giúp EC2 truy cập S3 bucket lưu trữ ảnh sản phẩm với độ trễ thấp và hoàn toàn miễn phí.
-+ **Interface Endpoint (AWS PrivateLink):** Được sử dụng cho các dịch vụ CI/CD, đảm bảo việc deploy code từ GitHub/CodePipeline vào Private EC2 không cần đi qua Internet công cộng.
+- **Điểm cuối VPC (VPC endpoints)** là các thiết bị ảo. Chúng là các thành phần VPC có khả năng mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và các dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
+- Trong kiến trúc hệ thống **Fashion E-commerce Platform**, các tài nguyên điện toán (Spring Boot backend chạy trên EC2 instance trong Private Subnet) có thể truy cập an toàn vào **Amazon S3** (lưu trữ ảnh sản phẩm) bằng điểm cuối Gateway, và kết nối với các dịch vụ CI/CD qua Interface Endpoint (PrivateLink) mà hoàn toàn không cần sử dụng NAT Gateway tốn kém.
 
 #### Tổng quan về Workshop
-Workshop này sẽ hướng dẫn bạn thiết lập hạ tầng thực tế cho hệ thống Fashion E-commerce trên AWS theo tiêu chuẩn Well-Architected:
-+ **Tối ưu chi phí:** Loại bỏ NAT Gateway, tận dụng VPC Endpoints.
-+ **High Availability:** Triển khai Multi-AZ với RDS và ElastiCache để đảm bảo hệ thống không bị gián đoạn.
-+ **Automation:** Xây dựng luồng CI/CD bảo mật tuyệt đối cho Backend EC2.
 
-![Architecture Overview](/images/5-Workshop/5.1-Workshop-overview/ecommerce_architecture.png)
-*(Lưu ý: Thay thế bằng hình vẽ 10 luồng mà bạn đã hoàn thiện)*
+Trong workshop này, bạn sẽ tiến hành triển khai và kiểm thử các thành phần cốt lõi của hạ tầng thương mại điện tử thời trang:
+
+- **"VPC Cloud"**: Nơi chứa các tài nguyên trên cloud bao gồm máy chủ ứng dụng (EC2 trong Private Subnet), Application Load Balancer (ALB), và các VPC Endpoints giúp truyền tải dữ liệu nội bộ bảo mật, tối ưu chi phí.
+- **"Tầng Dữ liệu & Lưu trữ (Data Layer)"**: Tích hợp Amazon RDS PostgreSQL (Multi-AZ) và Amazon ElastiCache (Redis) nhằm đảm bảo hiệu năng cao và tính sẵn sàng cao (Đồng bộ chéo Cross-AZ) cho ứng dụng bán hàng.
+- **"Tự động hóa & Giám sát (CI/CD & Monitoring)"**: Thiết lập quy trình deploy tự động, bảo mật thông qua AWS CodeDeploy/CodePipeline sử dụng VPC Interface Endpoint, đồng thời cấu hình CloudWatch để theo dõi log ứng dụng và cảnh báo chi phí.
+  ![overview](/images/5-Workshop/5.1-Workshop-overview/VPC_Gateway_Endpoint.png)

@@ -6,101 +6,118 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
+<!-- {{% notice warning %}}
+⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+{{% /notice %}} -->
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-Tại phần này, em xin tóm tắt các nội dung, mục tiêu và phương án triển khai kiến trúc hạ tầng AWS cho dự án Fashion E-commerce.
+<!-- Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm. -->
 
-# Fashion E-commerce Platform
+# Nền tảng Thương mại Điện tử Thời trang (Fashion E-commerce Platform)
 
-Giải pháp sàn thương mại điện tử thời trang với kiến trúc tối ưu chi phí và High Availability
+## Giải pháp kiến trúc AWS hợp nhất tối ưu hóa chi phí và đảm bảo tính sẵn sàng cao
 
-## 1. Tóm tắt điều hành
+### 1. Tóm tắt điều hành
 
-Dự án Fashion E-commerce Platform được thiết kế nhằm xây dựng hệ thống mua sắm trực tuyến chuyên nghiệp, có khả năng chịu tải cao trong các đợt cao điểm, bảo mật nghiêm ngặt và tối ưu hóa chi phí vận hành Cloud. Hệ thống sử dụng React cho Frontend và Spring Boot cho Backend. Kiến trúc được triển khai theo tiêu chuẩn High Availability (Multi-AZ), kết hợp các kỹ thuật tối ưu hóa mạng (VPC Endpoints) để loại bỏ hoàn toàn các dịch vụ tốn kém như NAT Gateway, đảm bảo tính kinh tế cao nhất cho môi trường Demo.
+Dự án Nền tảng Thương mại Điện tử Thời trang được thiết kế nhằm cung cấp trải nghiệm mua sắm trực tuyến chuyên nghiệp, bảo mật và có khả năng mở rộng cao, đáp ứng lưu lượng truy cập lớn trong các đợt cao điểm mua sắm. Hệ thống sử dụng **React** cho giao diện người dùng và **Spring Boot** cho phía máy chủ. Kiến trúc được triển khai theo tiêu chuẩn **Sẵn sàng cao (Multi-AZ)**, tích hợp các kỹ thuật mạng nâng cao như **VPC Endpoints** để loại bỏ hoàn toàn các dịch vụ tốn kém như NAT Gateway, đảm bảo hiệu quả chi phí tối ưu cho môi trường đám mây.
 
-## 2. Tuyên bố vấn đề
+### 2. Tuyên bố vấn đề
 
-### Vấn đề hiện tại
-Các hệ thống E-commerce truyền thống khi triển khai trên Cloud thường gặp thách thức lớn về chi phí hạ tầng mạng (đặc biệt là NAT Gateway đắt đỏ) và tính sẵn sàng không cao nếu không thiết kế theo tiêu chuẩn Multi-AZ. Ngoài ra, việc quản lý luồng CI/CD và truyền tải dữ liệu ảnh thường làm tăng độ trễ và chi phí duy trì.
+#### Vấn đề là gì?
 
-### Giải pháp
-Nền tảng sử dụng **Amazon CloudFront** để tối ưu hóa trải nghiệm người dùng toàn cầu. Hệ thống triển khai kiến trúc **Multi-AZ** với **Auto Scaling Group** cho EC2, sử dụng **Amazon ElastiCache** và **RDS PostgreSQL** với mô hình Cache-Aside để giảm tải Database. Đặc biệt, thay vì dùng NAT Gateway tốn phí, hệ thống sử dụng **VPC Gateway Endpoint** cho S3 và **Interface Endpoints** cho dịch vụ CI/CD, giúp truyền tải dữ liệu nội bộ bảo mật, tốc độ cao và miễn phí.
+Các hệ thống thương mại điện tử truyền thống khi triển khai trên môi trường đám mây thường phải đối mặt với thách thức lớn về chi phí hạ tầng mạng — đặc biệt là phí NAT Gateway đắt đỏ — và thiếu tính sẵn sàng cao nếu không được thiết kế theo tiêu chuẩn Multi-AZ. Ngoài ra, việc vận hành các luồng CI/CD và truyền tải tài sản đa phương tiện thường làm tăng độ trễ và chi phí duy trì.
 
-### Lợi ích và hoàn vốn đầu tư (ROI)
-Giải pháp tạo nền tảng vững chắc, sẵn sàng cho việc mở rộng tính năng. Việc tối ưu hóa mạng giúp chi phí duy trì hàng tháng thấp hơn đáng kể so với kiến trúc thông thường. Nền tảng giảm thiểu rủi ro vận hành nhờ tính năng tự động Failover của RDS và ElastiCache, đồng thời tự động hóa hoàn toàn quy trình triển khai bằng CI/CD pipeline nội bộ AWS.
+#### Giải pháp
 
-## 3. Kiến trúc giải pháp
+Nền tảng sử dụng **Amazon CloudFront** để tối ưu hóa trải nghiệm người dùng toàn cầu. Hệ thống triển khai kiến trúc **Multi-AZ** với nhóm tự động mở rộng (**Auto Scaling Group**) cho EC2, sử dụng **Amazon ElastiCache** và **RDS PostgreSQL** theo mô hình Cache-Aside để giảm tải cho cơ sở dữ liệu. Quan trọng hơn, thay vì sử dụng NAT Gateway tốn kém, hệ thống tận dụng **VPC Gateway Endpoints** cho S3 và **Interface Endpoints** cho các dịch vụ CI/CD, đảm bảo truyền tải dữ liệu nội bộ bảo mật, tốc độ cao và miễn phí.
 
-Kiến trúc tập trung vào sự tối giản trong hạ tầng mạng nhưng tối đa hóa tính sẵn sàng. Toàn bộ Backend được ẩn mình trong Private Subnet, chỉ tiếp nhận traffic đã qua kiểm duyệt từ ALB.
+#### Lợi ích và Tỷ suất hoàn vốn (ROI)
 
-![Architecture Diagram](/images/2-Proposal/Proposal.png)
+Giải pháp tạo nền tảng vững chắc, sẵn sàng cho việc mở rộng tính năng trong tương lai. Việc tối ưu hóa mạng lưới giúp giảm đáng kể chi phí duy trì hàng tháng so với các kiến trúc thông thường. Nền tảng giảm thiểu rủi ro vận hành nhờ khả năng tự động chuyển đổi dự phòng (failover) của RDS và ElastiCache, đồng thời tự động hóa hoàn toàn quy trình triển khai bằng các pipeline CI/CD gốc trên AWS.
 
-### Dịch vụ AWS sử dụng
+### 3. Kiến trúc giải pháp
 
-- Tầng Edge & Network: Amazon CloudFront, AWS WAF, ALB, VPC Endpoints.
-- Tầng Compute: Amazon EC2 (Auto Scaling Group), Spring Boot.
-- Tầng Data & Storage: Amazon RDS (PostgreSQL Multi-AZ), Amazon ElastiCache (Redis Multi-AZ), Amazon S3.
-- Tầng CI/CD: GitHub, AWS CodePipeline, AWS CodeDeploy.
-- Dịch vụ dùng chung: AWS IAM, AWS Secrets Manager, Amazon CloudWatch.
+Kiến trúc tập trung vào sự đơn giản trong thiết kế mạng nhưng tối đa hóa tính sẵn sàng. Toàn bộ máy chủ backend được cách ly trong các Private Subnet, chỉ tiếp nhận lưu lượng đã được lọc qua ALB. Kiến trúc chi tiết được thể hiện bên dưới:
 
-### Thiết kế thành phần
+![Fashion E-commerce Architecture](/images/2-Proposal/architecture.jpeg)
 
-- Tầng Giao diện: Frontend ReactJS phân phối qua CloudFront/S3.
-- Tầng Định tuyến: ALB đặt tại Public Subnet, điều hướng traffic tới Backend EC2 trong Private Subnet.
-- Tầng Dữ liệu: Database và Cache được đặt tại các subnet riêng biệt, hỗ trợ đồng bộ dữ liệu liên vùng (Cross-AZ Sync).
-- Tầng Lưu trữ ảnh: Sử dụng S3 thông qua VPC Gateway Endpoint để đảm bảo luồng lưu trữ ảnh sản phẩm luôn nội bộ và bảo mật.
+#### Các dịch vụ AWS được sử dụng
 
-## 4. Triển khai kỹ thuật
+- **Tầng Biên & Mạng (Edge & Network Layer)**: Amazon CloudFront, AWS WAF, ALB, VPC Endpoints.
+- **Tầng Tính toán (Compute Layer)**: Amazon EC2 (Auto Scaling Group), Spring Boot.
+- **Tầng Dữ liệu & Lưu trữ (Data & Storage Layer)**: Amazon RDS (PostgreSQL Multi-AZ), Amazon ElastiCache (Redis Multi-AZ), Amazon S3.
+- **Tầng CI/CD**: GitHub, AWS CodePipeline, AWS CodeDeploy.
+- **Dịch vụ dùng chung (Shared Services)**: AWS IAM, AWS Key Management Service (KMS), Amazon CloudWatch.
 
-### Các giai đoạn triển khai
+#### Thiết kế thành phần
 
-1. Thiết lập Mạng: Khởi tạo VPC, Public/Private Subnets, cấu hình IGW và VPC Endpoints.
-2. Triển khai Tầng Lưu trữ & Dữ liệu: Thiết lập RDS và ElastiCache với cấu hình Multi-AZ.
-3. Triển khai Tầng Tính toán: Build AMI cho EC2, cấu hình ASG kết hợp ALB.
-4. Tích hợp CI/CD & Bảo mật: Thiết lập Pipeline kéo code từ GitHub, cấu hình IAM Role/Policy và hệ thống giám sát CloudWatch.
+- **Tầng Giao diện (Frontend Layer)**: Giao diện ReactJS phân phối qua CloudFront/S3.
+- **Tầng Định tuyến (Routing Layer)**: ALB đặt tại Public Subnet, điều hướng lưu lượng đến các instance EC2 Backend trong Private Subnet.
+- **Tầng Dữ liệu (Data Layer)**: Cơ sở dữ liệu và Cache lưu trữ trong các subnet chuyên biệt hỗ trợ đồng bộ chéo giữa các Availability Zone (Cross-AZ).
+- **Tầng Lưu trữ ảnh (Image Storage Layer)**: Sử dụng S3 thông qua VPC Gateway Endpoints để đảm bảo xử lý hình ảnh sản phẩm nội bộ và bảo mật.
 
-### Yêu cầu kỹ thuật
+### 4. Triển khai kỹ thuật
 
-- Thông thạo ReactJS (UI/UX) và Spring Boot (RESTful API).
-- Kiến thức chuyên sâu về VPC Routing, Multi-AZ Failover, và tối ưu chi phí AWS (Cost Optimization).
-- Kỹ năng DevOps: Cấu hình Pipeline, CI/CD tự động và quản lý Secrets Manager.
+#### Các giai đoạn triển khai
 
-## 5. Lộ trình & Mốc triển khai
+- **Giai đoạn 1 (Tháng 1)**: Phân tích yêu cầu, thiết kế cơ sở dữ liệu, lập kế hoạch kiến trúc hệ thống và phát triển các API cốt lõi bằng Spring Boot.
+- **Giai đoạn 2 (Tháng 2)**: Phát triển giao diện ReactJS, thiết lập VPC, subnet, security group, Internet Gateway, cùng với việc triển khai Amazon RDS PostgreSQL và máy chủ backend trên EC2.
+- **Giai đoạn 3 (Tháng 3)**: Tích hợp Amazon S3, CloudFront, thiết lập CI/CD qua CodePipeline và CodeDeploy, cấu hình CloudWatch, kiểm thử bảo mật và hệ thống.
 
-- Giai đoạn 1 (Tuần 1-2): Phân tích yêu cầu, thiết kế cơ sở dữ liệu, xây dựng kiến trúc hệ thống và phát triển các API cốt lõi bằng Spring Boot. 
+#### Yêu cầu kỹ thuật
 
-- Giai đoạn 2 (Tuần 3-4): Phát triển giao diện ReactJS, thiết lập VPC, Subnet, Security Group, Internet Gateway và triển khai Amazon RDS PostgreSQL. 
-- Giai đoạn 3 (Tuần 5-6): Triển khai Backend lên EC2 thông qua Auto Scaling Group, cấu hình Application Load Balancer, tích hợp Amazon S3 và CloudFront. 
-- Giai đoạn 4 (Tuần 7-8): Thiết lập CI/CD bằng CodePipeline và CodeDeploy, cấu hình CloudWatch, kiểm thử hiệu năng, bảo mật và khả năng chịu lỗi. 
+- Thành thạo ReactJS (UI/UX) và Spring Boot (RESTful APIs).
+- Hiểu biết sâu sắc về định tuyến VPC, chuyển đổi dự phòng Multi-AZ và Tối ưu hóa chi phí AWS.
+- Kỹ năng DevOps: Cấu hình pipeline, tự động hóa CI/CD và quản lý Secrets Manager.
 
-## 6. Ước tính ngân sách
+### 5. Lộ trình & Mốc triển khai
 
-Dựa trên việc sử dụng các dịch vụ trong Free Tier và loại bỏ hoàn toàn chi phí NAT Gateway.
-Amazon EC2 (2 t3.micro): 18,00 USD/tháng (Application Server, Auto Scaling Group).
-Application Load Balancer (ALB): 8,00 USD/tháng (Cân bằng tải và định tuyến lưu lượng).
-Amazon RDS PostgreSQL: 15,00 USD/tháng (Single DB cho môi trường Demo).
-Amazon ElastiCache Redis: 10,00 USD/tháng (Caching dữ liệu, giảm tải Database).
-Amazon S3 Standard: 2,00 USD/tháng (Lưu trữ hình ảnh sản phẩm và tài nguyên tĩnh).
-Amazon CloudFront: 2,00 USD/tháng (Phân phối nội dung CDN).
-AWS CodePipeline & CodeDeploy: 0,00 USD/tháng (Trong giới hạn Free Tier).
-Amazon CloudWatch, IAM, Secrets Manager và VPC Endpoint: 2,00 USD/tháng.
-Tổng: 57,00 USD/tháng, tương đương khoảng 684,00 USD/năm.
+#### Lộ trình dự án
 
-## 7. Đánh giá rủi ro
+- **Thời gian thực tập (Tháng 1-3)**: Tổng cộng 3 tháng triển khai.
+  - Tháng 1: Thiết kế & API Backend cốt lõi.
+  - Tháng 2: Thiết lập Frontend, Mạng & Tích hợp tính toán.
+  - Tháng 3: Pipeline CI/CD, Giám sát & Kiểm thử.
+- **Sau khi ra mắt**: Tiếp tục tối ưu hóa và bảo trì hệ thống.
 
-- Rủi ro mạng: Mất kết nối liên vùng (giảm thiểu bằng cấu hình Multi-AZ).
-- Rủi ro chi phí: Tăng đột biến do traffic ngoài dự kiến (giảm thiểu bằng CloudWatch Billing Alarms).
-- Rủi ro bảo mật: Lộ lọt thông tin Database (giảm thiểu bằng IAM Permissions Boundary và Secrets Manager).
+### 6. Ước tính ngân sách
 
-## 8. Kết quả kỳ vọng
+Được ước tính dựa trên việc sử dụng trong hạn mức Free Tier và loại bỏ hoàn toàn chi phí NAT Gateway.
 
-### Cải tiến kỹ thuật 
--Xây dựng thành công hệ thống thương mại điện tử thời trang theo kiến trúc Multi-tier trên AWS. 
-- Hoàn thiện quy trình CI/CD tự động bằng AWS CodePipeline và CodeDeploy, giúp rút ngắn thời gian triển khai phiên bản mới. 
-- Tăng cường bảo mật với Private Subnet, IAM, Security Group, Secrets Manager và VPC Endpoint. 
-- Xây dựng quy trình triển khai phần mềm tự động hóa cao.
+#### Chi phí hạ tầng
 
-### Giá trị dài hạn 
-- Dễ dàng tích hợp các dịch vụ AWS khác như AI/ML, hệ thống gợi ý sản phẩm, phân tích dữ liệu và thanh toán trực tuyến trong tương lai. 
-- Có thể tái sử dụng kiến trúc cho các dự án thương mại điện tử hoặc hệ thống web quy mô tương tự, góp phần giảm thời gian triển khai và chi phí phát triển các dự án sau. 
-- Tạo nền tảng hạ tầng Cloud có khả năng mở rộng để phục vụ số lượng người dùng và đơn hàng ngày càng tăng. 
+- **Amazon EC2 (2 t3.micro)**: 18,00 USD/tháng (Máy chủ ứng dụng, Auto Scaling Group).
+- **Application Load Balancer (ALB)**: 8,00 USD/tháng (Cân bằng tải và định tuyến lưu lượng).
+- **Amazon RDS PostgreSQL**: 15,00 USD/tháng (DB đơn cho môi trường Demo).
+- **Amazon ElastiCache Redis**: 10,00 USD/tháng (Lưu trữ cache, giảm tải cho database).
+- **Amazon S3 Standard**: 2,00 USD/tháng (Lưu trữ ảnh sản phẩm và tài nguyên tĩnh).
+- **Amazon CloudFront**: 2,00 USD/tháng (Phân phối nội dung CDN).
+- **AWS CodePipeline & CodeDeploy**: 0,00 USD/tháng (Trong giới hạn Free Tier).
+- **Amazon CloudWatch, IAM, Secrets Manager & VPC Endpoint**: 2,00 USD/tháng.
+- **Tổng cộng**: 57,00 USD/tháng, tương đương khoảng 684,00 USD/năm.
+
+### 7. Đánh giá rủi ro
+
+#### Ma trận rủi ro
+
+- **Sự cố mạng**: Tác động trung bình, xác suất trung bình.
+- **Biến động chi phí**: Tác động trung bình, xác suất thấp.
+- **Lỗ hổng bảo mật**: Tác động cao, xác suất thấp.
+
+#### Chiến lược giảm thiểu
+
+- **Mạng**: Triển khai Multi-AZ để đảm bảo tính sẵn sàng cao và hỗ trợ chuyển đổi dự phòng.
+- **Chi phí**: Cấu hình cảnh báo hóa đơn (CloudWatch billing alarms) để theo dõi các chi phí phát sinh bất thường.
+- **Bảo mật**: Sử dụng IAM Permissions Boundary, WAF và Secrets Manager để bảo vệ thông tin xác thực và quyền truy cập database.
+
+### 8. Kết quả kỳ vọng
+
+#### Cải tiến kỹ thuật:
+
+- Triển khai thành công hệ thống thương mại điện tử thời trang đa tầng trên AWS.
+- Xây dựng hoàn chỉnh pipeline CI/CD tự động sử dụng AWS CodePipeline và CodeDeploy để phát hành phiên bản mới nhanh chóng.
+- Tăng cường bảo mật tận dụng Private Subnet, IAM, Security Groups, Secrets Manager và VPC Endpoints.
+
+#### Giá trị dài hạn:
+
+- Dễ dàng mở rộng để tích hợp các dịch vụ AWS khác như hệ thống gợi ý AI/ML hoặc phân tích dữ liệu.
+- Mẫu kiến trúc có thể tái sử dụng cho các dự án web quy mô tương tự, giúp rút ngắn thời gian đưa sản phẩm ra thị trường và giảm chi phí phát triển.

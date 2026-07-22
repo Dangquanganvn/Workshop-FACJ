@@ -1,13 +1,27 @@
 ---
-title : "Prerequiste"
-date : 2024-01-01 
-weight : 2 
-chapter : false
-pre : " <b> 5.2. </b> "
+title: "Prerequiste"
+date: 2024-01-01
+weight: 2
+chapter: false
+pre: " <b> 5.2. </b> "
 ---
 
-#### IAM permissions
-Add the following IAM permission policy to your user account to deploy and cleanup this workshop.
+#### 1. AWS Account and Region
+
+For this workshop, we will be deploying the infrastructure manually. Please ensure you have an active AWS Account.
+
+We will use the **Singapore region (ap-southeast-1)** for all resources to ensure optimal latency and consistency across the lab.
+
+1. Log in to the [AWS Management Console](https://console.aws.amazon.com/).
+2. In the top right corner, click on the Region drop-down.
+3. Select **Asia Pacific (Singapore) ap-southeast-1**.
+
+#### 2. IAM permissions
+
+To successfully deploy and clean up the resources in this workshop (VPC, EC2, Load Balancer, Auto Scaling, RDS, ElastiCache, and S3), your IAM user or role needs sufficient permissions.
+
+If you are not using an Administrator account, add the following inline IAM policy to your user:
+
 ```
 {
     "Version": "2012-10-17",
@@ -215,28 +229,3 @@ Add the following IAM permission policy to your user account to deploy and clean
 }
 
 ```
-
-#### Provision resources using CloudFormation
-
-In this lab, we will use **N.Virginia region (us-east-1)**.
-
-To prepare the workshop environment, deploy this **CloudFormation Template** (click link): [PrivateLinkWorkshop ](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.us-east-1.amazonaws.com/reinvent-endpoints-builders-session/Nested.yaml&stackName=PLCloudSetup). Accept all of the defaults when deploying the template. 
-
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack1.png)
-
-+ Tick 2 acknowledgement boxes
-+ Choose **Create stack**
-
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack2.png)
-
-The **ClouddFormation** deployment requires about 15 minutes to complete.
-
-![complete](/images/5-Workshop/5.2-Prerequisite/complete.png)
-
-+ **2 VPCs** have been created
-
-![vpcs](/images/5-Workshop/5.2-Prerequisite/vpcs.png)
-
-+ **3 EC2s** have been created
-
-![EC2](/images/5-Workshop/5.2-Prerequisite/ec2.png)

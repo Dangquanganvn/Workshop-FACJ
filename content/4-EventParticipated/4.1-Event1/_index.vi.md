@@ -85,7 +85,7 @@ pre: " <b> 4.1. </b> "
 
 - Cấu trúc phân lớp của container: Kernel → Base Image → các Image trung gian (thêm package, thư viện) → Container writable layer trên cùng — hiểu rõ cơ chế này giúp tối ưu Dockerfile và kích thước image.
 - Docker Engine nằm giữa Host OS và ứng dụng: Cho phép nhiều container cùng chia sẻ một Host OS nhưng vẫn chạy độc lập với nhau, khác hẳn với việc mỗi VM phải có Guest OS riêng.
-- Dockerfile là "công thức" build image: Các chỉ thị như `FROM`, `ARG`, `RUN`, `WORKDIR`, `COPY`, `CMD`/`ENTRYPOINT` quyết định cách image được build và ứng dụng được khởi chạy.
+- Dockerfile là "công thức" build image: Các chỉ thị như FROM, ARG, RUN, WORKDIR, COPY, CMD/ENTRYPOINT quyết định cách image được build và ứng dụng được khởi chạy.
 
 #### Chiến Lược Hiện Đại Hóa
 

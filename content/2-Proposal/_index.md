@@ -6,130 +6,114 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-In this section, I summarize the objectives, scope, and AWS infrastructure architecture proposed for the Fashion E-commerce project.
+<!-- In this section, you need to summarize the contents of the workshop that you **plan** to conduct. -->
 
 # Fashion E-commerce Platform
 
-**A cost-optimized and highly available fashion e-commerce solution on AWS**
+## A Unified AWS Architecture for High Availability and Cost Optimization
 
-## 1. Executive Summary
+### 1. Executive Summary
 
-The **Fashion E-commerce Platform** is designed to provide a professional online shopping system with high scalability, strong security, and cost-efficient cloud operations. The application uses **React** for the frontend and **Spring Boot** for the backend. The infrastructure follows a **High Availability (Multi-AZ)** architecture and leverages **VPC Endpoints** to eliminate the need for costly **NAT Gateways**, making it an economical solution for demonstration and educational environments.
+The Fashion E-commerce Platform is designed to provide a professional, secure, and highly scalable online shopping experience capable of handling high traffic loads during peak shopping events. The system utilizes **React** for the frontend and **Spring Boot** for the backend. The architecture is deployed following **High Availability (Multi-AZ)** standards, integrating advanced networking techniques such as **VPC Endpoints** to completely eliminate expensive services like NAT Gateway, ensuring high cost-efficiency for the cloud environment.
 
-## 2. Problem Statement
+### 2. Problem Statement
 
-### Current Challenges
+#### What’s the Problem?
 
-Traditional cloud-based e-commerce systems often face significant challenges related to infrastructure costs, especially the high expense of **NAT Gateways**, as well as limited availability when they are not designed using a **Multi-AZ** architecture. In addition, CI/CD pipelines and image delivery frequently increase both latency and operational costs.
+Traditional E-commerce systems deployed on Cloud environments often face major infrastructure cost challenges—especially regarding expensive NAT Gateway fees—and lack high availability if not designed following Multi-AZ standards. Additionally, handling CI/CD pipelines and media asset transmissions often introduces latency and high maintenance costs.
 
-### Proposed Solution
+#### The Solution
 
-The platform utilizes **Amazon CloudFront** to optimize content delivery for users worldwide. The infrastructure adopts a **Multi-AZ architecture** with **Amazon EC2 Auto Scaling Groups**, **Amazon ElastiCache**, and **Amazon RDS PostgreSQL** using the **Cache-Aside** pattern to reduce database workload.
+The platform utilizes **Amazon CloudFront** to optimize global user experience. The system implements a **Multi-AZ** architecture with an **Auto Scaling Group** for EC2, utilizing **Amazon ElastiCache** and **RDS PostgreSQL** with a Cache-Aside pattern to reduce database load. Crucially, instead of using costly NAT Gateways, the system uses **VPC Gateway Endpoints** for S3 and **Interface Endpoints** for CI/CD services, ensuring secure, high-speed, and cost-free internal data transfers.
 
-Instead of using NAT Gateways, the solution employs **Amazon VPC Gateway Endpoints** for Amazon S3 and **Interface Endpoints** for CI/CD services, enabling secure, high-speed, and cost-effective internal communication.
+#### Benefits and Return on Investment
 
-### Benefits and Return on Investment (ROI)
+The solution establishes a solid foundation ready for future feature expansions. Network optimization significantly lowers monthly maintenance costs compared to conventional architectures. The platform minimizes operational risks thanks to automatic failover capabilities in RDS and ElastiCache, while fully automating deployment workflows using native AWS CI/CD pipelines.
 
-The proposed architecture provides a reliable foundation for future expansion while significantly reducing monthly operational costs compared to traditional cloud deployments. Automatic failover capabilities provided by Amazon RDS and Amazon ElastiCache minimize service interruptions, while AWS-native CI/CD services fully automate software deployment.
+### 3. Solution Architecture
 
-## 3. Solution Architecture
+The architecture focuses on structural simplicity in network design while maximizing availability. All backend servers are isolated within Private Subnets, accepting only filtered traffic routed through the ALB. The architecture is detailed below:
 
-The architecture emphasizes simplicity in networking while maximizing availability. All backend services are deployed inside **Private Subnets** and only receive traffic that has been validated by the **Application Load Balancer (ALB)**.
+![Fashion E-commerce Architecture](/images/2-Proposal/architecture.jpeg)
 
-![Architecture Diagram](/images/2-Proposal/Proposal.png)
+#### AWS Services Used
 
-### AWS Services
+- **Edge & Network Layer**: Amazon CloudFront, AWS WAF, ALB, VPC Endpoints.
+- **Compute Layer**: Amazon EC2 (Auto Scaling Group), Spring Boot.
+- **Data & Storage Layer**: Amazon RDS (PostgreSQL Multi-AZ), Amazon ElastiCache (Redis Multi-AZ), Amazon S3.
+- **CI/CD Layer**: GitHub, AWS CodePipeline, AWS CodeDeploy.
+- **Shared Services**: AWS IAM, AWS Key Management Service (KMS), Amazon CloudWatch.
 
-- **Edge & Networking:** Amazon CloudFront, AWS WAF, Application Load Balancer (ALB), Amazon VPC Endpoints.
-- **Compute:** Amazon EC2 (Auto Scaling Group), Spring Boot.
-- **Data & Storage:** Amazon RDS PostgreSQL (Multi-AZ), Amazon ElastiCache for Redis (Multi-AZ), Amazon S3.
-- **CI/CD:** GitHub, AWS CodePipeline, AWS CodeDeploy.
-- **Shared Services:** AWS IAM, AWS Secrets Manager, Amazon CloudWatch.
+#### Component Design
 
-### Component Design
+- **Frontend Layer**: ReactJS frontend distributed via CloudFront/S3.
+- **Routing Layer**: ALB located in the Public Subnet, routing traffic to Backend EC2 instances in the Private Subnet.
+- **Data Layer**: Database and Cache hosted in dedicated subnets supporting Cross-AZ synchronization.
+- **Image Storage Layer**: Utilizes S3 via VPC Gateway Endpoints to ensure internal, secure handling of product images.
 
-- **Presentation Layer:** React frontend hosted on Amazon S3 and distributed through Amazon CloudFront.
-- **Routing Layer:** The Application Load Balancer is deployed in Public Subnets and routes incoming requests to backend EC2 instances running in Private Subnets.
-- **Data Layer:** Database and cache services are deployed in separate subnet groups with cross-AZ synchronization for high availability.
-- **Image Storage:** Product images are stored in Amazon S3 and accessed through a VPC Gateway Endpoint, ensuring secure internal traffic.
+### 4. Technical Implementation
 
-## 4. Technical Implementation
+#### Implementation Phases
 
-### Deployment Phases
+- **Phase 1 (Month 1)**: Requirements analysis, database design, system architecture planning, and core API development using Spring Boot.
+- **Phase 2 (Month 2)**: ReactJS frontend development, VPC, subnet, security group, and Internet Gateway setup, alongside Amazon RDS PostgreSQL and backend compute deployment on EC2.
+- **Phase 3 (Month 3)**: Integration of Amazon S3, CloudFront, setting up CI/CD via CodePipeline and CodeDeploy, configuring CloudWatch, and performing security and system testing.
 
-1. Configure the networking infrastructure, including the VPC, Public and Private Subnets, Internet Gateway, and VPC Endpoints.
-2. Deploy the data layer by provisioning Amazon RDS PostgreSQL and Amazon ElastiCache in a Multi-AZ configuration.
-3. Deploy the application layer by creating EC2 AMIs, configuring Auto Scaling Groups, and integrating the Application Load Balancer.
-4. Configure security, monitoring, and CI/CD using GitHub, AWS CodePipeline, CodeDeploy, IAM, Secrets Manager, and Amazon CloudWatch.
+#### Technical Requirements
 
-### Technical Requirements
+- Proficiency in ReactJS (UI/UX) and Spring Boot (RESTful APIs).
+- In-depth knowledge of VPC routing, Multi-AZ failover, and AWS Cost Optimization.
+- DevOps skills: Pipeline configuration, automated CI/CD, and Secrets Manager management.
 
-- Proficiency in ReactJS for frontend development.
-- Experience with Spring Boot for RESTful API development.
-- Strong understanding of Amazon VPC routing, Multi-AZ failover, and AWS cost optimization strategies.
-- DevOps skills for building CI/CD pipelines and managing AWS Secrets Manager.
+### 5. Timeline & Milestones
 
-## 5. Project Roadmap
+#### Project Timeline
 
-### Phase 1 (Weeks 1–2)
+- **Internship (Months 1-3)**: 3 months total implementation.
+  - Month 1: Design & Core Backend API.
+  - Month 2: Frontend & Network Setup, Compute Integration.
+  - Month 3: CI/CD Pipeline, Monitoring & Testing.
+- **Post-Launch**: Ongoing optimization and system maintenance.
 
-- Analyze system requirements.
-- Design the database.
-- Build the system architecture.
-- Develop core REST APIs using Spring Boot.
+### 6. Budget Estimation
 
-### Phase 2 (Weeks 3–4)
+Estimated based on Free Tier utilization and the complete elimination of NAT Gateway costs.
 
-- Develop the React frontend.
-- Configure the Amazon VPC, Subnets, Security Groups, and Internet Gateway.
-- Deploy Amazon RDS PostgreSQL.
+#### Infrastructure Costs
 
-### Phase 3 (Weeks 5–6)
+- **Amazon EC2 (2 t3.micro)**: $18.00/month (Application Server, Auto Scaling Group).
+- **Application Load Balancer (ALB)**: $8.00/month (Load balancing and traffic routing).
+- **Amazon RDS PostgreSQL**: $15.00/month (Single DB for Demo environment).
+- **Amazon ElastiCache Redis**: $10.00/month (Data caching, reducing database load).
+- **Amazon S3 Standard**: $2.00/month (Product image storage and static assets).
+- **Amazon CloudFront**: $2.00/month (CDN content delivery).
+- **AWS CodePipeline & CodeDeploy**: $0.00/month (Within Free Tier limits).
+- **Amazon CloudWatch, IAM, Secrets Manager & VPC Endpoint**: $2.00/month.
+- **Total**: $57.00/month, approximately $684.00/year.
 
-- Deploy backend services to Amazon EC2 using Auto Scaling Groups.
-- Configure the Application Load Balancer.
-- Integrate Amazon S3 and Amazon CloudFront.
+### 7. Risk Assessment
 
-### Phase 4 (Weeks 7–8)
+#### Risk Matrix
 
-- Build CI/CD pipelines with AWS CodePipeline and CodeDeploy.
-- Configure Amazon CloudWatch monitoring.
-- Perform performance testing, security testing, and high availability validation.
+- **Network Outages**: Medium impact, medium probability.
+- **Cost Surges**: Medium impact, low probability.
+- **Security Vulnerabilities**: High impact, low probability.
 
-## 6. Estimated Budget
+#### Mitigation Strategies
 
-The following cost estimate assumes Free Tier eligibility where applicable and completely eliminates NAT Gateway expenses.
+- **Network**: Multi-AZ deployment to guarantee high availability and failover support.
+- **Cost**: CloudWatch billing alarms to monitor unexpected spikes.
+- **Security**: IAM Permissions Boundary, WAF, and Secrets Manager to protect credentials and database access.
 
-| AWS Service | Estimated Monthly Cost | Purpose |
-|-------------|----------------------:|---------|
-| Amazon EC2 (2 × t3.micro) | **USD 18.00** | Application servers with Auto Scaling |
-| Application Load Balancer | **USD 8.00** | Load balancing and request routing |
-| Amazon RDS PostgreSQL | **USD 15.00** | Database for the demo environment |
-| Amazon ElastiCache for Redis | **USD 10.00** | Database caching |
-| Amazon S3 Standard | **USD 2.00** | Product image and static asset storage |
-| Amazon CloudFront | **USD 2.00** | Content Delivery Network (CDN) |
-| AWS CodePipeline & CodeDeploy | **USD 0.00** | Within AWS Free Tier limits |
-| Amazon CloudWatch, IAM, Secrets Manager, and VPC Endpoints | **USD 2.00** | Monitoring and security services |
+### 8. Expected Outcomes
 
-**Total Estimated Cost:** **USD 57.00 per month**, or approximately **USD 684.00 per year**.
+#### Technical Improvements:
 
-## 7. Risk Assessment
+- Successful implementation of a multi-tier fashion E-commerce system on AWS.
+- Fully automated CI/CD pipeline using AWS CodePipeline and CodeDeploy for rapid version releases.
+- Enhanced security leveraging Private Subnets, IAM, Security Groups, Secrets Manager, and VPC Endpoints.
 
-- **Network Risk:** Inter-AZ connectivity failures, mitigated through Multi-AZ deployment.
-- **Cost Risk:** Unexpected traffic spikes, mitigated by CloudWatch Billing Alarms.
-- **Security Risk:** Exposure of database credentials, mitigated using IAM permission boundaries and AWS Secrets Manager.
+#### Long-term Value:
 
-## 8. Expected Outcomes
-
-### Technical Improvements
-
-- Successfully deploy a fashion e-commerce platform using a Multi-tier AWS architecture.
-- Implement a fully automated CI/CD pipeline with AWS CodePipeline and CodeDeploy.
-- Strengthen infrastructure security through Private Subnets, IAM, Security Groups, Secrets Manager, and VPC Endpoints.
-- Establish a highly automated software deployment process.
-
-### Long-Term Value
-
-- Provide a scalable foundation for integrating future AWS services such as AI/ML, recommendation systems, analytics, and online payment solutions.
-- Reuse the architecture for other e-commerce or web-based applications, reducing development time and deployment costs.
-- Build a cloud-native infrastructure capable of scaling with increasing user traffic and business growth.
+- Easily extensible for integrating additional AWS services such as AI/ML recommendation engines or data analytics.
+- Reusable architecture template for similar web scale projects, reducing time-to-market and development costs.

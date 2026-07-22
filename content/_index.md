@@ -7,9 +7,6 @@ chapter: false
 
     
 # Internship Report
-
-
-
 ### Student Information:
 &emsp; **Full Name:** Đặng Quang An
 
@@ -29,7 +26,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 17/04/2026 to 10/07/2026
 
-![Your profile picture](/images/avatar.png)
+![picture](/static/images/avatar.png)
 
 ### Report Content
 

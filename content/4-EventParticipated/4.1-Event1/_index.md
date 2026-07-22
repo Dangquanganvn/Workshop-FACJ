@@ -81,7 +81,7 @@ pre: " <b> 4.1. </b> "
 
 - **Container's layered structure**: Kernel → Base Image → intermediate Images (adding packages, libraries) → the writable Container layer on top — understanding this mechanism helps optimize Dockerfiles and image size.
 - **Docker Engine sits between the Host OS and applications**: This allows multiple containers to share a single Host OS while still running independently of one another, unlike VMs which each require their own Guest OS.
-- **A Dockerfile is the "recipe" for building an image**: Instructions such as `FROM`, `ARG`, `RUN`, `WORKDIR`, `COPY`, and `CMD`/`ENTRYPOINT` determine how the image is built and how the application is started.
+- **A Dockerfile is the "recipe" for building an image**: Instructions such as FROM, ARG, RUN, WORKDIR, COPY, and CMD/ENTRYPOINT determine how the image is built and how the application is started.
 
 #### Modernization Strategy
 
